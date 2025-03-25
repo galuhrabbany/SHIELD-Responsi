@@ -241,8 +241,8 @@
                    var popupContent = "Nama: " + feature.properties.name + "<br>" + "Luas (Hektar): " + feature
                        .properties
                        .area_hektar.toFixed(2) + "<br>" + "Luas (Km): " + feature.properties
-                       .area_km.toFixed(2) + "br" + "<br>" + "Luas (M): " + feature.properties
-                       .area_m.toFixed(2) + "br" + "Deskripsi: " + feature.properties.description + "<br>" +
+                       .area_km.toFixed(2) + "<br>"+ "Luas (M): " + feature.properties
+                       .area_m.toFixed(2) + "<br>" + "Deskripsi: " + feature.properties.description + "<br>" +
                        "Dibuat: " + feature.properties.created_at;
                    layer.on({
                        click: function(e) {
