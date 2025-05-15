@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         #map {
             width: 100%;
@@ -147,7 +146,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://unpkg.com/@terraformer/wkt"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         var map = L.map('map').setView([-7.9829077, 112.6311493], 13);
@@ -201,14 +199,25 @@
                 var routedelete = "{{ route('points.destroy', ':id') }}";
                 routedelete = routedelete.replace(':id', feature.properties.id);
 
+                var routeedit = "{{ route('points.edit', ':id') }}";
+                routeedit = routeedit.replace(':id', feature.properties.id);
+
                 var popupContent = "Nama: " + feature.properties.name + "<br>" +
                     "Deskripsi: " + feature.properties.description + "<br>" +
                     "Dibuat: " + feature.properties.created_at + "<br>" +
                     "<img src='{{ asset('/storage/images/') }}/" + feature.properties.image +
                     "' width='200' alt=''>" + "<br>" +
-                    "<form method='POST' action='" + routedelete + "'>" + '@csrf' + '@method("DELETE")' +
+                    "<div class ='row mt-4'>" +
+                    "<div class='col-6 text-center'>" +
+                    "<a href='" + routeedit +
+                    "' class='btn btn-warning btn-sm'><i class='fa-solid fa-pen-to-square'></i></a>" +
+                    "</div>" +
+                    "<div class='col-6 text-center'>" +
+                    "<form method='POST' action='" + routedelete + "'>" + '@csrf' + '@method('DELETE')' +
                     "<button type ='submit' class='btn btn-danger btn-sm' onclick='return confirm(`Yakin mau dihapus nih?`)'><i class='fa-solid fa-trash'></i></button>" +
-                    "</form>";
+                    "</form>" +
+                    "</div>" +
+                    "</div>";
                 layer.on({
                     click: function(e) {
                         layer.bindPopup(popupContent).openPopup();
@@ -230,14 +239,25 @@
                 var routedelete = "{{ route('polylines.destroy', ':id') }}";
                 routedelete = routedelete.replace(':id', feature.properties.id);
 
+                var routeedit = "{{ route('polylines.edit', ':id') }}";
+                routeedit = routeedit.replace(':id', feature.properties.id);
+
                 var popupContent = "Nama: " + feature.properties.name + "<br>" +
                     "Deskripsi: " + feature.properties.description + "<br>" + "Panjang: " + feature.properties
                     .length_km.toFixed(2) + "km<br>" + "Dibuat: " + feature.properties.created_at + "<br>" +
                     "<img src='{{ asset('/storage/images/') }}/" + feature.properties.image +
                     "' width='200' alt=''>" + "<br>" +
-                    "<form method='POST' action='" + routedelete + "'>" + '@csrf' + '@method("DELETE")' +
+                    "<div class ='row mt-4'>" +
+                    "<div class='col-6 text-center'>" +
+                    "<a href='" + routeedit +
+                    "' class='btn btn-warning btn-sm'><i class='fa-solid fa-pen-to-square'></i></a>" +
+                    "</div>" +
+                    "<div class='col-6 text-center'>" +
+                    "<form method='POST' action='" + routedelete + "'>" + '@csrf' + '@method('DELETE')' +
                     "<button type ='submit' class='btn btn-danger btn-sm' onclick='return confirm(`Yakin mau dihapus nih?`)'><i class='fa-solid fa-trash'></i></button>" +
-                    "</form>";
+                    "</form>" +
+                    "</div>" +
+                    "</div>";
                 layer.on({
                     click: function(e) {
                         polyline.bindPopup(popupContent);
@@ -259,6 +279,8 @@
 
                 var routedelete = "{{ route('polygons.destroy', ':id') }}";
                 routedelete = routedelete.replace(':id', feature.properties.id);
+                var routeedit = "{{ route('polygons.edit', ':id') }}";
+                routeedit = routeedit.replace(':id', feature.properties.id);
 
                 var popupContent = "Nama: " + feature.properties.name + "<br>" +
                     "Luas (Hektar): " + feature.properties.area_hektar.toFixed(2) + "<br>" +
@@ -268,9 +290,17 @@
                     "Dibuat: " + feature.properties.created_at + "<br>" +
                     "<img src='{{ asset('/storage/images/') }}/" + feature.properties.image +
                     "' width='200' alt=''>" + "<br>" +
-                    "<form method='POST' action='" + routedelete + "'>" + '@csrf' + '@method("DELETE")' +
+                    "<div class ='row mt-4'>" +
+                    "<div class='col-6 text-center'>" +
+                    "<a href='" + routeedit +
+                    "' class='btn btn-warning btn-sm'><i class='fa-solid fa-pen-to-square'></i></a>" +
+                    "</div>" +
+                    "<div class='col-6 text-center'>" +
+                    "<form method='POST' action='" + routedelete + "'>" + '@csrf' + '@method('DELETE')' +
                     "<button type ='submit' class='btn btn-danger btn-sm' onclick='return confirm(`Yakin mau dihapus nih?`)'><i class='fa-solid fa-trash'></i></button>" +
-                    "</form>";
+                    "</form>" +
+                    "</div>" +
+                    "</div>";
                 layer.on({
                     click: function(e) {
                         polygon.bindPopup(popupContent);
@@ -298,7 +328,8 @@
         };
 
         L.control.layers(baseMaps, overlayMaps, {
-            collapsed: false
+            collapsed: false,
+            position: 'bottomright'
         }).addTo(map);
     </script>
 @endsection
