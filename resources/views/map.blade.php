@@ -217,7 +217,7 @@
                     "<button type ='submit' class='btn btn-danger btn-sm' onclick='return confirm(`Yakin mau dihapus nih?`)'><i class='fa-solid fa-trash'></i></button>" +
                     "</form>" +
                     "</div>" +
-                    "</div>";
+                    "</div>" + "<br>" + "<p> Dibuat oleh: " + feature.properties.user_created + "</p>";
                 layer.on({
                     click: function(e) {
                         layer.bindPopup(popupContent).openPopup();
@@ -257,7 +257,7 @@
                     "<button type ='submit' class='btn btn-danger btn-sm' onclick='return confirm(`Yakin mau dihapus nih?`)'><i class='fa-solid fa-trash'></i></button>" +
                     "</form>" +
                     "</div>" +
-                    "</div>";
+                    "</div>" + "<br>" + "<p> Dibuat oleh: " + feature.properties.user_created + "</p>";;
                 layer.on({
                     click: function(e) {
                         polyline.bindPopup(popupContent);
@@ -300,7 +300,7 @@
                     "<button type ='submit' class='btn btn-danger btn-sm' onclick='return confirm(`Yakin mau dihapus nih?`)'><i class='fa-solid fa-trash'></i></button>" +
                     "</form>" +
                     "</div>" +
-                    "</div>";
+                    "</div>" + "<br>" + "<p> Dibuat oleh: " + feature.properties.user_created + "</p>";;
                 layer.on({
                     click: function(e) {
                         polygon.bindPopup(popupContent);

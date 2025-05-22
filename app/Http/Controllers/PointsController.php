@@ -17,7 +17,7 @@ class PointsController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Map Malang',
+            'title' => 'Map Kota Malang',
         ];
         return view('map', $data);
     }
@@ -71,6 +71,7 @@ class PointsController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'image' => $name_image,
+            'user_id' => auth()->user()->id,
         ];
 
         // Create Data
