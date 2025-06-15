@@ -8,7 +8,7 @@ class PublicController extends Controller
 {
     public function index() {
         $data = [
-            'title' => 'Home',
+            'title' => 'SHIELD',
         ];
 
         return view('home', $data);
