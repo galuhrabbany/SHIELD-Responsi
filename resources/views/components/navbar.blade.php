@@ -16,17 +16,17 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link shield-link active" aria-current="page" href="{{ route('home') }}">
-                        <i class="fa-solid fa-shield-halved"></i> Home
+                        <i class="fa-solid fa-shield-halved"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link shield-link" href="{{ route('map') }}">
-                        <i class="fa-solid fa-location-crosshairs"></i> Map
+                        <i class="fa-solid fa-location-crosshairs"></i> Peta Laporan
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link shield-link" href="{{ route('table') }}">
-                        <i class="fa-solid fa-list-check"></i> Table
+                        <i class="fa-solid fa-list-check"></i> Tabel Data
                     </a>
                 </li>
                 <li class="nav-item">

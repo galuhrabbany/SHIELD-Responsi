@@ -108,7 +108,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fa-solid fa-pen me-2"></i>Edit Titik</h5>
+                    <h5 class="modal-title"><i class="fa-solid fa-pen me-2"></i>Edit Laporan</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form method="POST" action="{{ route('points.update', $id) }}" enctype="multipart/form-data">
@@ -230,7 +230,7 @@
             }
         });
 
-        $.getJSON("{{ route('api.points') }}", function (data) {
+        $.getJSON("{{ route('api.point', $id) }}", function (data) {
             pointLayer.addData(data);
             map.addLayer(pointLayer);
             map.fitBounds(pointLayer.getBounds(), { padding: [100, 100] });
