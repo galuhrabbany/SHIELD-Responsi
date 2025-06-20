@@ -50,7 +50,7 @@ The map is powered by **Leaflet.js** and data is handled using Laravel's backend
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/shield-map.git
+git clone https://github.com/galuhrabbany/SHIELD-responsi.git
 
 # Install dependencies
 composer install
